@@ -31,6 +31,7 @@ const fs        = require('fs');
 
     let stream = fs.createWriteStream('timing.txt', {flags: 'a'});
     stream.write(timing + '\n');
+    stream.end();
 
     await browser.close();
 })();
