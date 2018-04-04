@@ -1,0 +1,20 @@
+{
+  "name": "rise-login-timer",
+  "version": "1.0.0",
+  "description": "Login to the website of De Lijn and check timing",
+  "main": "main.js",
+  "dependencies": {
+    "puppeteer": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://cambiph@bitbucket.org/cambiph/rise-login-timer.git"
+  },
+  "author": "Philippe Cambien",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/cambiph/rise-login-timer#readme"
+}
