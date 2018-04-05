@@ -29,7 +29,7 @@ const fs        = require('fs');
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
 
-    fs.appendFile('timing.txt', new Date().toISOString + ' ' + timing + '\n', function(err) {
+    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n', function(err) {
         if(err) {
             console.log('Something went wrong when writing to the file');
         }
