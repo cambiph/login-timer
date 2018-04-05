@@ -29,7 +29,7 @@ const fs        = require('fs');
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
 
-    let stream = fs.createWriteStream('timing' + new Date().getTime() + '.txt', {flags: 'a'});
+    let stream = fs.createWriteStream('timing.txt', {flags: 'a'});
     stream.write(new Date().toISOString() + ' ' + timing + '\n');
     stream.end();
 
