@@ -2,10 +2,6 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
-    const browser = await puppeteer.launch({
-        headless: true,
-        timeout: 60000
-    });
 
     const page = await browser.newPage();
     page.setViewport({
