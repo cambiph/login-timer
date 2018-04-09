@@ -30,7 +30,7 @@ const fs = require('fs');
     let timing = (stop.getTime() - start.getTime()) / 1000;
 
     await browser.close();
-    
+
     fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n', (err) => {
         if (err) throw err;
     });
