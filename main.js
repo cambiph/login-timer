@@ -31,7 +31,7 @@ const fs = require('fs');
 
     await browser.close();
 
-    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing, (err) => {
+    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n' , (err) => {
         if (err) throw err;
     });
 })();
