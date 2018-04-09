@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const fs        = require('fs');
+const fs = require('fs');
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -21,18 +21,20 @@ const fs        = require('fs');
     await page.type('#user-login-email', 'delijn@inboxbear.com');
     await page.type('#user-login-password', 'DeLijn01');
     await page.click('#loginbutton');
-    
+
     let start = new Date()
-    
+
     await page.waitForSelector('button#userButton span.icon.icon-caret-down');
-    
+
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
 
-    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n', function(err) {
-        if(err) {
-            console.log('Something went wrong when writing to the file');
-        }
+    fs.readFile('timing.txt', function (err, data) {
+        if (err) console.log('Error reading file: ' + err);
+        data = data + new Date().toISOString() + ' ' + timing + '\n';
+        fs.writeFile('timing.txt', data.toString(), (err) => {
+            if (err) console.log('Error writing to file: ' + err);
+        })
     });
 
     await browser.close();
