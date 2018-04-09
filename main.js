@@ -29,12 +29,8 @@ const fs = require('fs');
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
 
-    fs.readFile('timing.txt', function (err, data) {
-        if (err) console.log('Error reading file: ' + err);
-        data = data + new Date().toISOString() + ' ' + timing + '\n';
-        fs.writeFile('timing.txt', data.toString(), (err) => {
-            if (err) console.log('Error writing to file: ' + err);
-        })
+    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n', (err) => {
+        if (err) throw err;
     });
 
     await browser.close();
