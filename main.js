@@ -2,6 +2,10 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 (async () => {
+    const browser = await puppeteer.launch({
+        headless: true,
+        timeout: 60000
+    });
 
     const page = await browser.newPage();
     page.setViewport({
@@ -27,7 +31,7 @@ const fs = require('fs');
 
     await browser.close();
 
-    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n\r', (err) => {
+    fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing, (err) => {
         if (err) throw err;
     });
 })();
