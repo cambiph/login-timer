@@ -19,6 +19,12 @@ const password = process.env.password || "DeLijn01";
         height: 1080
     });
 
+    page.setCookie({
+        name: 'noodberichtenCookie',
+        value: '%5B12%2004%202018%2012%3A57%3A29_9336%5D',
+        domain: '*.delijn.be'
+    });
+    
     await page.goto(url);
 
     await page.click('#login-btn-header');
