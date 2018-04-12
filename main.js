@@ -19,10 +19,11 @@ const password = process.env.password || "DeLijn01";
         height: 1080
     });
 
-    page.setCookie({
-        name: 'noodberichtenCookie',
-        value: '%5B12%2004%202018%2012%3A57%3A29_9336%5D',
-        domain: '*.delijn.be'
+    await page.setCookie({
+        'name': 'noodberichtenCookie',
+        'value': '%5B12%2004%202018%2012%3A57%3A29_9336%5D',
+        'domain': 'accept.delijn.be',
+        'expires': Date.now() / 1000 + 10,
     });
     
     await page.goto(url);
