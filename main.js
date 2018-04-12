@@ -1,7 +1,13 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
+const url = process.env.url || "https://www.delijn.be";
+const user = process.env.user || "delijn@inboxbear.com";
+const password = process.env.password || "DeLijn01";
+
 (async () => {
+    console.log('Using url: ' + url);
+
     const browser = await puppeteer.launch({
         headless: true,
         timeout: 60000
@@ -13,18 +19,18 @@ const fs = require('fs');
         height: 1080
     });
 
-    await page.goto('https://www.delijn.be');
+    await page.goto(url);
 
     await page.click('#login-btn-header');
     await page.waitForSelector('#user-login-email');
 
-    await page.type('#user-login-email', 'delijn@inboxbear.com');
-    await page.type('#user-login-password', 'DeLijn01');
+    await page.type('#user-login-email', user);
+    await page.type('#user-login-password', password);
     await page.click('#loginbutton');
 
     let start = new Date()
 
-    await page.waitForSelector('button#userButton span.icon.icon-caret-down');
+    await page.waitForSelector('button#userButton span.icon.icon-caret-down', {timeout: 60000});
 
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
