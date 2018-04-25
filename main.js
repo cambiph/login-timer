@@ -36,13 +36,13 @@ const password = process.env.password || "DeLijn01";
     await page.click('#loginbutton');
 
     let start = new Date()
-    await page.tracing.start({screenshots: true, path: 'trace' + start + '.json'});
+    await page.tracing.start({screenshots: true, path: 'trace' + new Date().toISOString() + '.json'});
     await page.waitForSelector('button#userButton span.icon.icon-caret-down', {timeout: 60000});
 
     await page.tracing.stop();
     let stop = new Date()
     let timing = (stop.getTime() - start.getTime()) / 1000;
-    
+
     await browser.close();
 
     fs.appendFile('timing.txt', new Date().toISOString() + ' ' + timing + '\n' , (err) => {
