@@ -6,6 +6,8 @@ const user = process.env.user || "delijn@inboxbear.com";
 const password = process.env.password || "DeLijn01";
 
 (async () => {
+    let browser;
+
     try {
         const timeout = 60000;
         console.log('Using url: ' + url);
@@ -52,5 +54,6 @@ const password = process.env.password || "DeLijn01";
 
     } catch (err) {
         console.log(err);
+        await browser.close();
     }
 })();
