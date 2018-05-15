@@ -26,8 +26,8 @@ async function createPage(browser) {
 async function setCookie(page) {
     page.setCookie({
         'name': 'noodberichtenCookie',
-        'value': '%5B12%2004%202018%2012%3A57%3A29_9336%5D',
-        'domain': 'accept.delijn.be',
+        'value': '%5B15%2005%202018%2009%3A20%3A47_13857%5D',
+        'domain': 'www.delijn.be',
         'expires': Date.now() / 1000 + 10,
     });
 }
